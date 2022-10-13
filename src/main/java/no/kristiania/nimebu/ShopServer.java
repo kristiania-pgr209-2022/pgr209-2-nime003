@@ -1,6 +1,7 @@
 package no.kristiania.nimebu;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 
@@ -17,6 +18,8 @@ public class ShopServer {
         var wContext = new WebAppContext();
         wContext.setContextPath("/");
         wContext.setBaseResource(Resource.newClassPathResource("/webapp"));
+
+        shopServer.setHandler(new HandlerList(wContext));
     }
 
     public void start() throws Exception {

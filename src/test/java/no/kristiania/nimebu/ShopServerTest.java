@@ -21,7 +21,7 @@ class ShopServerTest {
     @Test
     void httpResponseShouldBe200Test() throws IOException {
         var connection = openConnection("/");
-        assertThat(connection.getResponseCode()).isEqualTo("200");
+        assertThat(connection.getResponseCode()).isEqualTo(200);
     }
 
     private HttpURLConnection openConnection(String spec) throws IOException {
