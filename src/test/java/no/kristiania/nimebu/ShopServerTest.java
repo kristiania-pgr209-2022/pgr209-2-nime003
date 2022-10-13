@@ -55,13 +55,14 @@ class ShopServerTest {
                         .getBytes(StandardCharsets.UTF_8)
         );
         assertThat(postConnection.getResponseCode()).as(postConnection.getResponseMessage()
-        + "for" + postConnection.getURL()).isEqualTo(200);
+        + " for " + postConnection.getURL()).isEqualTo(200);
 
         var connection = openConnection("/api/products");
         assertThat(connection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
                 .contains("{\"productId\":10");
     }
+
 
     private HttpURLConnection openConnection(String spec) throws IOException {
         return (HttpURLConnection) new URL(server.getURL(), spec).openConnection();
