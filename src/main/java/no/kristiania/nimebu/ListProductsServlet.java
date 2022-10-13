@@ -16,8 +16,11 @@ public class ListProductsServlet extends HttpServlet {
         var exampleProduct = new Product();
         exampleProduct.setId(10);
         exampleProduct.setName("Potet");
+        var exampleProduct2 = new Product();
+        exampleProduct2.setId(11);
+        exampleProduct2.setName("Peppermynte");
 
-        var products = List.of(exampleProduct);
+        var products = List.of(exampleProduct, exampleProduct2);
 
         JsonArrayBuilder result = Json.createArrayBuilder();
         for (Product product : products) {

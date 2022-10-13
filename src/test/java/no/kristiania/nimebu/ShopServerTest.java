@@ -1,5 +1,6 @@
 package no.kristiania.nimebu;
 
+import jakarta.json.Json;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,6 +37,27 @@ class ShopServerTest {
         var connection = openConnection("/api/products");
 
         assertThat(connection.getResponseCode()).isEqualTo(200);
+        assertThat(connection.getInputStream())
+                .asString(StandardCharsets.UTF_8)
+                .contains("{\"productId\":10");
+    }
+    @Test
+    void shouldAddProductsTest() throws IOException {
+        var postConnection = openConnection("/api/products");
+        postConnection.setRequestMethod("POST");
+        postConnection.setDoOutput(true);
+        postConnection.getOutputStream().write(
+                Json.createObjectBuilder()
+                .add("productId",12)
+                .add("productName", "Papaya")
+                        .build()
+                        .toString()
+                        .getBytes(StandardCharsets.UTF_8)
+        );
+        assertThat(postConnection.getResponseCode()).as(postConnection.getResponseMessage()
+        + "for" + postConnection.getURL()).isEqualTo(200);
+
+        var connection = openConnection("/api/products");
         assertThat(connection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
                 .contains("{\"productId\":10");
