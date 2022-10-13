@@ -9,7 +9,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ShopServerTest {
     public static ShopServer server;
@@ -25,10 +24,21 @@ class ShopServerTest {
         assertThat(connection.getResponseCode()).isEqualTo(200);
     }
 
+
     @Test
     public void shouldServeH1Test() throws IOException {
         var connection = openConnection("/");
         assertThat(connection.getInputStream()).asString(StandardCharsets.UTF_8).contains("<h1>nimebu Shop!</h1>");
+    }
+
+    @Test
+    void getAllProductsTest() throws IOException {
+        var connection = openConnection("/api/products");
+
+        assertThat(connection.getResponseCode()).isEqualTo(200);
+        assertThat(connection.getInputStream())
+                .asString(StandardCharsets.UTF_8)
+                .contains("{\"productId\":\"10\"");
     }
 
     private HttpURLConnection openConnection(String spec) throws IOException {
