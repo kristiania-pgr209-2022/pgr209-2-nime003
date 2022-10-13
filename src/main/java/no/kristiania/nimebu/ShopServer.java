@@ -5,11 +5,14 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ShopServer {
+    private static final Logger logger = LoggerFactory.getLogger(ShopServer.class);
 
     private final Server shopServer;
 
@@ -31,7 +34,9 @@ public class ShopServer {
     public URL getURL() throws MalformedURLException {
         return shopServer.getURI().toURL();
     }
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+    public static void main(String[] args) throws Exception {
+        var server = new ShopServer(0);
+        server.start();
+        logger.warn("Server starting at {}", server.getURL());
     }
 }
