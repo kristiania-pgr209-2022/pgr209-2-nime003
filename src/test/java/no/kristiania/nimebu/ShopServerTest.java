@@ -38,7 +38,7 @@ class ShopServerTest {
         assertThat(connection.getResponseCode()).isEqualTo(200);
         assertThat(connection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
-                .contains("{\"productId\":\"10\"");
+                .contains("{\"productId\":10");
     }
 
     private HttpURLConnection openConnection(String spec) throws IOException {
