@@ -2,6 +2,7 @@ package no.kristiania.nimebu;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 
@@ -19,6 +20,7 @@ public class ShopServer {
         wContext.setContextPath("/");
         wContext.setBaseResource(Resource.newClassPathResource("/webapp"));
 
+        wContext.addServlet(new ServletHolder(new ListProductsServlet()), "/api/products");
         shopServer.setHandler(new HandlerList(wContext));
     }
 
@@ -26,11 +28,10 @@ public class ShopServer {
         shopServer.start();
     }
 
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
-
     public URL getURL() throws MalformedURLException {
         return shopServer.getURI().toURL();
+    }
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
     }
 }
