@@ -39,7 +39,7 @@ public class ProductsEndpoint extends HttpServlet {
     public Response addProduct(String body) {
         var jsonProduct = Json.createReader(new StringReader(body)).readObject();
         var product =new Product(
-                jsonProduct.getInt("productId"),
+                Integer.parseInt(jsonProduct.getString("productId")),
                 jsonProduct.getString("productName")
         );
         products.add(product);

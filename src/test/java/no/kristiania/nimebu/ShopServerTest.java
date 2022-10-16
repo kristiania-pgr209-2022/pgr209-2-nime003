@@ -26,11 +26,11 @@ class ShopServerTest {
     }
 
 
-    @Test
+    /*@Test
     public void shouldServeH1Test() throws IOException {
         var connection = openConnection("/");
         assertThat(connection.getInputStream()).asString(StandardCharsets.UTF_8).contains("<h1>nimebu Shop!</h1>");
-    }
+    } test no longer works with React */
 
     @Test
     void getAllProductsTest() throws IOException {
@@ -60,7 +60,7 @@ class ShopServerTest {
         var connection = openConnection("/api/products");
         assertThat(connection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
-                .contains("{\"productId\":10");
+                .contains("{\"productId\":\"10\"");
     }
 
 

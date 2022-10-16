@@ -2,5 +2,4 @@
 /target/
 *.iml
 .idea
-/src/main/resources/webapp/assets/
 /src/main/resources/webapp/

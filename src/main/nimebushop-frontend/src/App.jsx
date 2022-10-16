@@ -1,9 +1,29 @@
 import {useEffect, useState} from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 
 function AddProduct() {
-  return null;
+    const [productId, setProductId] = useState("");
+    const [productName, setProductName] = useState("");
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        await fetch("/api/products", {
+            method: "post",
+            body: JSON.stringify({productId, productName}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+    }
+
+    return <div>
+        <form onSubmit={handleSubmit}>
+            <div><label>Product id: <input type={"number"} value={productId} onChange={event => setProductId(event.target.value)}/></label></div>
+            <div><label>Product name: <input type={"text"} value={productName} onChange={event => setProductName(event.target.value)}/></label></div>
+            <button>submit</button>
+        </form>
+    </div>
 }
 
 function ListProducts() {
