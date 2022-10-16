@@ -1,6 +1,10 @@
 import {useEffect, useState} from 'react'
 import './App.css'
 
+function refreshPage() {
+    window.location.reload(1);
+}
+
 function AddProduct() {
     const [productId, setProductId] = useState("");
     const [productName, setProductName] = useState("");
@@ -17,11 +21,12 @@ function AddProduct() {
 
     }
 
+
     return <div>
         <form onSubmit={handleSubmit}>
             <div><label>Product id: <input type={"number"} value={productId} onChange={event => setProductId(event.target.value)}/></label></div>
             <div><label>Product name: <input type={"text"} value={productName} onChange={event => setProductName(event.target.value)}/></label></div>
-            <button>submit</button>
+            <button onClick={refreshPage}>submit</button>
         </form>
     </div>
 }
