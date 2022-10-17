@@ -26,11 +26,11 @@ class ShopServerTest {
     }
 
 
-    /*@Test
+    @Test
     public void shouldServeH1Test() throws IOException {
         var connection = openConnection("/");
-        assertThat(connection.getInputStream()).asString(StandardCharsets.UTF_8).contains("<h1>nimebu Shop!</h1>");
-    } test no longer works with React */
+        assertThat(connection.getInputStream()).asString(StandardCharsets.UTF_8).contains("<h1>Welcome to Nimebu Shop");
+    }
 
     @Test
     void getAllProductsTest() throws IOException {
@@ -48,7 +48,7 @@ class ShopServerTest {
         postConnection.setDoOutput(true);
         postConnection.getOutputStream().write(
                 Json.createObjectBuilder()
-                .add("productId",12)
+                .add("productId","12")
                 .add("productName", "Papaya")
                         .build()
                         .toString()
@@ -60,7 +60,7 @@ class ShopServerTest {
         var connection = openConnection("/api/products");
         assertThat(connection.getInputStream())
                 .asString(StandardCharsets.UTF_8)
-                .contains("{\"productId\":\"10\"");
+                .contains("{\"productId\":10");
     }
 
 

@@ -53,7 +53,6 @@ function App() {
 
   return (
     <div className="App">
-        <h1>Welcome to Nimebu Shop!</h1>
         <AddProduct/>
         <ListProducts/>
     </div>
