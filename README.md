@@ -1,3 +1,5 @@
+link til codereview: https://github.com/kristiania-pgr209-2022/pgr209-2-krolleone/pull/1/files
+
 # Innlevering 2: Programmeringsferdigheter
 
 ## Oppgave
@@ -23,11 +25,11 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [ ] Valgfritt - forutsetter forrige steg: JUnit test som sjekker at title på index.html er korrekt
 * Innlevering
   * [ ] Begge har levert link til Github Repository i Canvas
-  * [?] Koden er sjekket inn på et repository på https://github.com/kristiania-pgr209-2021
+  * [x] Koden er sjekket inn på et repository på https://github.com/kristiania-pgr209-2021
   * [x] GitHub repository er private. Dere skal gi tilgang til de som gir code review
 * Github
   * [x] Dere har merget pull en pull request
-  * [ ] Dere har mottatt code review fra medstudenter på feedback-pull request
+  * [x] Dere har mottatt code review fra medstudenter på feedback-pull request
   * [x] `.idea`, `*.iml` og `target` er lagt til i .gitignore og ikke sjekket inn
   * [x] Github Actions rapporterer at 100% av testene kjører grønt
 * Kode
@@ -38,4 +40,4 @@ Når dere oppretter repository via Github Classroom linken på Canvas, vil det a
   * [ ] Dersom dere har valgt en stor oppgave behøver dere ikke løse hele. 6-7 tester er tilstrekkelig
 * README-fil
   * [x] Korrekt GitHub Actions status badge
-  * [ ] Link til code review dere har gjort for medstudenter med minst én issue fra hver av dere
+  * [x] Link til code review dere har gjort for medstudenter med minst én issue fra hver av dere
